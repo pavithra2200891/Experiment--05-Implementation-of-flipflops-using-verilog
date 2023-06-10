@@ -111,47 +111,90 @@ Procedure write all the steps invloved
 5.End the program with endmodule.
 6.Run the program and choose RTL viewer to get RTL realization.
 PROGRAM Program for flipflops and verify its truth table in quartus using Verilog programming.
+
 #PROGRAM
+
 SR FLIPFLOP
+
 module SR(S,R,clk,Q,Qbar);
+
 input S,R,clk;
+
 output Q,Qbar;
+
 wire X,Y;
+
 nand (X,S,clk);
+
 nand (Y,R,clk);
+
 nand (Q,X,Qbar);
+
 nand (Qbar,Y,Q);
+
 endmodule
+
 JK FLIPFLOP
+
 module JK(J,K,clk,Q,Qbar);
+
 input J,K,clk;
+
 output Q,Qbar;
+
 wire X,Y;
+
 nand (X,J,clk,Qbar);
+
 nand (Y,K,clk,Q);
+
 nand (Q,X,Qbar);
+
 nand (Qbar,Y,Q);
+
 endmodule
+
 D FLIPFLOP
+
 module DF(D,clk,Q,Qbar);
+
 input D,clk;
+
 output Q,Qbar;
+
 assign Dbar=~D;
+
 wire X,Y;
+
 nand (X,D,clk);
+
 nand (Y,Dbar,clk);
+
 nand (Q,X,Qbar);
+
 nand (Qbar,Y,Q);
+
 endmodule
+
 T FLIPFLOP
+
 module TF(T,clk,Q,Qbar);
+
 input T,clk;
+
 output Q,Qbar;
+
 wire S,R;
+
 nand (S,T,clk,Qbar);
+
+
 nand (R,T,clk,Q);
+
 nand (Q,S,Qbar):
+
 nand (Qbar,R,Q);
+
 endmodule
 
 
@@ -180,10 +223,6 @@ T FLIPFLOP
 
 ![T FLIPFLOP](https://github.com/pavithra2200891/Experiment--05-Implementation-of-flipflops-using-verilog/assets/128951583/8e48392b-e30c-4e94-8f98-b55aac5ba3c3)
 
-
-
-
-
 ### TIMING DIGRAMS FOR FLIP FLOPS 
 
 SR FLIPFLOP
@@ -198,9 +237,5 @@ D FLIPFLOP
 T FLIPFLOP
 
 ![T FF TT](https://github.com/pavithra2200891/Experiment--05-Implementation-of-flipflops-using-verilog/assets/128951583/6eaf226e-c145-4831-bdbc-19272b7a2328)
-
-
-
-
 
 ### RESULTS : Thus the program for flipflops is implemented and its functional table is successfully verified in quartus using verilog programming
